@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Kevin O'Neill - Gripper</title>
+    <title>Kevin O'Neill - Project Talon</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -40,6 +40,7 @@
             <h2>Menu</h2>
             <ul>
               <li><a href="index">Home</a></li>
+              <li><a href="gripper.html">Project Talon</a></li>
               <li><a href="bracket.html">Bracket</a></li>
               <!--
               <li><a href="relativity.html">Relativity</a></li>
@@ -86,7 +87,7 @@
             </p>
             <h3> Teammates </h3>
             <u1>
-              <li> Michael Mong </li>
+              <li> <a href="https://mmong.me" target="_blank">Michael Mong</a> </li>
               <li> Alexander Baikovitz </li>
               <li> Andrew Rosenfeld </li>
               <li> Jack Sather </li>
@@ -95,28 +96,43 @@
 
             <h3>The Design Process</h3>
 
-            <p><span class="image right"><img src="images/crane-sketch.jpg" alt="" /></span>
-              Going into the first design review, we assumed that the arm itself was massless.
-              This is neither practical nor possible, but we chose to runw ith it because the
-              center of mass of the arm was so close to the axis of rotation-- thus the moment
-              caused by the arm itself was negligible compared to the torque of the servo, the
-              weight of the counterweight, and the force due to the weight.
-              <p>Additionally, we assumed that the arm would lift a max of 60 degrees.
-              Although the servo was capable of rotating further, as the arm increased
-              in angle, the change in x position due to trigonometric properties would cause
-              the arm to no longer be ablle to lift the weight. As a result, a 60% lift angle
-              would be a safe bet for the actual max lift angle. Lastly, we assumed that the max
-              torque by the servo was 57 oz-in. After some prototyping, we discovered that we weren't
-              getting anywhere near that torque despite that was what the manufacturer rated the servo for.
+            <p><span class="image right"><img src="images/gripper-analysis.jpg" alt="" /></span>
+              The first decison that we made was that we would have one starionary arm, and one dynamic arm.
+              This would allow for a much simpler design than one that had more than one moving arm. This design would
+              also be significantly lighter than one that used more than two arms as we determined that we would be able to get
+              sufficient stability simply from 2 arms.
+
+              <p>One of the first major design decisons that we had to make, outside of the shape of
+              the gripper and how many points of contact we would have, was the mechanim to both
+              open and close the gripper. We decided to use a string mechanism for a couple important reasons.
+              First, by not using gears and similar mechanisms, we limited the number of axles that we needed
+              in our design. Axles and gears, we determined, were disproportionately heavy for the benefits that they
+              offered over something like a string. Additionally, by using a string, we were able to actuate the arm
+              closer to the object. This allowed more of the force in the string to be translated to the object vs. a gear
+              that actuated the arm near its rotational axle.
               </p>
             </p>
-            <p> Once we were happy with our conceptual design, we used Solidworks to model
-              the crane in an assembly. This allowed us to perform some basic
-              simulations to determine the deflection at the end of the crane as well
-              as its structural validity. These calculations helped determine what the
-              inner and outer diameter of our structural members needed to be.
+            <p> As a group, we decided that we would produce a heavy, yet safe design for the first design review such that we
+              could produce an extremely light gripper for the second round. We did this for a couple reasons:
+              <ol>
+                <li>Because a significant portion of the grade was
+                determined based on the performance of the gripper, we wanted to make sure that we had one that worked
+                the first time. This would then allow us to push the limits with our second version as we would have
+                a fall back gripper.
+                </li>
+                <li>With the carbon fiber sandwich being expensive and extremely tiresome to machine, we would be able
+                  to identify risks and points of failure in our design before switching to the carbon fiber sandwich.
+                </li>
+                <li>As a group, we had limited to no expirence with the carbon fiber sandwich which we were planning
+                  to use and therefore we had some fears that the carbon fiber sheets may not work the way we were expecting.
+                </li>
+                <li>There was an element of secrecy involved as we did not want other groups to be able to replicate our
+                  final gripper design. had we used the sandwich board in the first round, there could have been groups
+                  which procured their own sheets and it would make it much more difficult for us to be the lightest.
+                </li>
+              </ol>
             </p>
-            <span class="image main"><img src="images/cranerender.png" alt="" /></span>
+            <span class="image main"><img src="images/gripper-render.png" alt="" /></span>
 
 
             <h3>Manufacturing</h3>
@@ -125,7 +141,7 @@
               to produce the required geometries for the arms, but for our second version, we
               had to mill carbon fiber sheets which called for specific manufacturing processes.
               This allowed us to create geometries that were more condusive to the bending and
-              loads that we were expecting in durring the testing procedure.
+              loads that we expected durring the testing procedure.
             </p>
              <div class="box alt">
                <div class="row gtr-uniform">
@@ -150,48 +166,57 @@
            </p>
 
            <h3>Design Review I</h3>
-           <p>We were getting essentially 2 inches of height up until the night
-             before the first design review. The main source of error that we
-             encountered was the fact that the servo we were using was not consistent.
-             Not only did we see different capabilities between different controllers,
-             but also when we began the design review, we realized that the servo was
-             performing at a reduced level compared to the night before. Our suspicions
-             were confirmed when we switched servos and our crane performed better.
+           <p>For the first design review, we produced a gripper that was mostly made of delrin,
+             with some 3D printed parts, and some metal and plastic hardware. The spool that we 3D printed
+             allowed us to interface with the motor and it allowed for two seperate strings: one which was the driving string,
+             and a second which asted as a hardstop. Because of the increased radius due to the spool, we needed to loop our string
+             through the arms such that they acted as pullies in order to get a satisfactory grip strength. The Dynamic arm was
+             held up using a spring.
            </p>
-           <span class="image main"><img src="images/cranereview1.gif" alt="" /></span>
-           <p>The actual output of our crane was much worse than the calculations
-             that we did to find our theoretical servo torque as well as our
-             theoretical lift height. Initially we calculated that using a
-             counterweight that had its center of mass six inches from the axis
-             of rotation would provide plenty of torque to allow for the servo
-             to easily lift the weight. Unfortunately, when we placed our design
-             on the field, we quickly found that the arm could barely lift the
-             weight and that the crane was nowhere near the 2 inches that we
-             needed to achieve.
+           <p> This design weighed a total of 134 grams, which was about 60 grams heavier than the lightest gripper
+             from the first round.
+           </p>
+           <div class="box alt">
+             <div class="row gtr-uniform">
+               <div class="col-6"><span class="image fit"><img src="images/gripper-v1-left.jpg" alt="" /></span></div>
+               <div class="col-6"><span class="image fit"><img src="images/gripper-v1-right.jpg" alt="" /></span></div>
+             </div>
+           </div>
+           <p> For all the successes that this version represented, there were fundamental flaws in the design that would need
+             to be addressed in order to have the lightest gripper.
+             <ol>
+               <li>Ditch the Delrin. The weight of the delrin used in the gripper was 87 grams by itself. Replacing it with the carbon
+                 sandwich would save at least 80% of that weight.
+               </li>
+               <li>The spool, while functional was heavy at 16 grams and sometimes had a tendancy to get the seperate strings caught.
+               </li>
+               <li>The hardware that we used was also very heavy as a group. If we were to get down below 30 grams, we would need to
+                 replace the metal harware with their nylon counterparts, or simply reduce the amount of hardware that we used.
+               </li>
+               <li>The path that the string took was causing a fairly large off axis moment to occur in the arm. While this was not a
+                 huge issue for the delrin, once we switched to the carbon fiber sandwich, it could easily cause catistrophic failure.
+               </li>
+             </ol>
            </p>
 
            <h3> Final Design </h3>
            <p>
-             Coming out of the first review, we added a 45 degree bend in the
-             lever arm and improved our counterweight so it would no longer hit our crane arm.
-             Additionally, we milled a smaller base that allowed for more adjustability
-             when it came to iterating for our final version.
+             With these challenges in mind we began the process to alter our gripper and
+             when the carbon fiber was being milled, our attention turned to the spool and the
+             string path. For the spool, we came up with a very elegant solution in which the
+             spool acts like a one way ratchet. In addition, we designed a spacer such that the
+             string could travel through the mounting base and down to the arm. This would cause the
+             static to lose its off axis bending.
            </p>
-           <p> Our final crane was extremely adjustable in terms of rotation as
-             well as adjusting our servo mount to get the arm to interact with the
-             weight at the correct angle. Hollowed rods allowed for us to minimize
-             weight without sacrificing structural integrity, especially in respect
-             to bending.The tension strips that were instrumental in
-             preventing further bending as it prevented bending for the first 60%
-             of the crane arm length. The angled arm allowed for the weight to be
-             lifted at a larger distance from the servo while still allowing the
-             servo to cotrol the arm at the beginning.
+           <p> These adjustments, along with the increased use of adhesives, switching out the delrin,
+             and minimizing the metal used in the gripper allowed us to pruduce a working gripper
+             that only weighed 23.4 grams.
            </p>
 
-           <p> As a group we were able to design and manufacture a crane that lifted
-             the weight 4.875 inches which was second in the class.
+           <p> This weight was a significant achievement, not only for the improvement that we showed from our
+             first version, but the class average was 150 grams and the next closest gripper was 40 grams.
            </p>
-           <span class="image main"><img src="images/finalcrane.gif" alt="" /></span>
+           <span class="image main"><img src="images/gripper-final.jpg" alt="" /></span>
 
           </div>
         </div>
